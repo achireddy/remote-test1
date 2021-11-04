@@ -48,7 +48,7 @@ jobs:
           rm -rf .git/modules/Sync/          
           ls -la
           pwd
-          git submodule add -b branch1 https://github.com/achireddy/Sync.git
+          git submodule add -b branch1 https://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:x-oauth-basic@github.com/achireddy/Sync.git
           git status
           cat .gitmodules
           cat .gitignore
