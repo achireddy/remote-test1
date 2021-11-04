@@ -45,8 +45,7 @@ jobs:
           ls -la
           git submodule deinit -f Sync
           rm -rf Sync/
-          rm -rf .git/modules/Sync/
-          git rm -r --cached Sync
+          rm -rf .git/modules/Sync/          
           ls -la
           pwd
           git submodule add -b branch1 https://github.com/achireddy/Sync.git
