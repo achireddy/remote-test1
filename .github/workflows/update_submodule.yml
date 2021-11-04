@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: achireddy/submodule
-          #token: "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" #${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.REPOACCESS }}
           submodules: 'true'
           ref: sub1
       # Runs a single command using the runners shell
@@ -44,10 +44,10 @@ jobs:
           git config pull.rebase true
           ls -la
           pwd
-          git submodule add -b branch1 https://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:x-oauth-basic@github.com/achireddy/Sync.git
+          git submodule add -b branch1 https://${{ secrets.TOKEN }}:x-oauth-basic@github.com/achireddy/Sync.git
           git status
           cat .gitmodules
           cat .gitignore
           git add .
           git commit -m "move submodule to latest commit in develop"
-          git push --force --quiet "https://achireddy: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@github.com/achireddy/submodule"
+          git push --force --quiet "https://achireddy:${{ secrets.TOKEN }}@github.com/achireddy/submodule"
