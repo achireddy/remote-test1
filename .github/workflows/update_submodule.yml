@@ -42,13 +42,12 @@ jobs:
           git config --global user.email "kurriachi@gmail.com"
           git config --global user.name "achireddy"
           git config pull.rebase true
-          ls -la    
           ls -la
           pwd
-          git submodule add -b branch1 https://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:x-oauth-basic@github.com/achireddy/Sync.git
+          git submodule add -b branch1 https://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:x-oauth-basic@github.com/achireddy/Sync.git
           git status
           cat .gitmodules
           cat .gitignore
           git add .
           git commit -m "move submodule to latest commit in develop"
-          git push --force --quiet "https://achireddy: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@github.com/achireddy/submodule"
+          git push --force --quiet "https://achireddy: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@github.com/achireddy/submodule"
