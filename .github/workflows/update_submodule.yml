@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: achireddy/submodule
-          #token: https://github.com/achireddy/submodule.git #${{ secrets.REPO_ACCESS_TOKEN }}
+          token: "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" #${{ secrets.REPO_ACCESS_TOKEN }}
           submodules: 'true'
           ref: sub1
       # Runs a single command using the runners shell
