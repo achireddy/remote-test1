@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: achireddy/submodule
-          token: "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" #${{ secrets.REPO_ACCESS_TOKEN }}
+          token: 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 #${{ secrets.REPO_ACCESS_TOKEN }}
           submodules: 'true'
           ref: sub1
       # Runs a single command using the runners shell
