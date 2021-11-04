@@ -42,8 +42,7 @@ jobs:
           git config --global user.email "kurriachi@gmail.com"
           git config --global user.name "achireddy"
           git config pull.rebase true
-          ls -la
-          git submodule deinit -f Sync    
+          ls -la    
           ls -la
           pwd
           git submodule add -b branch1 https://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:x-oauth-basic@github.com/achireddy/Sync.git
