@@ -47,7 +47,7 @@ jobs:
           rm -rf Sync/
           rm -rf .git/modules/Sync/
           git rm -r --cached Sync
-          ls -la
+         // ls -la
           pwd
           git submodule add -b branch1 https://github.com/achireddy/Sync.git
           git status
