@@ -40,7 +40,7 @@ jobs:
         run:
           #git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
           git clone ${MAIN_REPOSITORY}
-          git branch -a
+          git branch -r
       # Move sub project
       - name: Move project to main project
         run: |
