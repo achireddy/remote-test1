@@ -1,0 +1,54 @@
+name: SYNC_Adobe
+env:
+  # Username/email used to commit to Cloud Manager's Git repository
+  USER_NAME: alvin-yau-rockwellautomation-com
+  USER_EMAIL: Alvin.Yau@rockwellautomation.com
+  # Cloud Manager's Git repository
+  MAIN_REPOSITORY: https://alvin-yau-rockwellautomation-com:4m66ufvi5czngzhhulwcvjnyj7kw35fpzzb25wyjp3vvlppjh2ra@git.cloudmanager.adobe.com/rockwell/rockwell
+  # The branch in Cloud Manager's Git repository to push to
+  MAIN_BRANCH : global-dev
+ 
+# Only run on a push to this branch
+on:
+  push:
+     branches: 
+       - sub1
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      # Checkout this project into a sub folder
+      - uses: actions/checkout@v2
+        with:
+          path: sub
+      # Cleanup sub project
+      - name: Clean project
+        run: |
+          git -C sub log --format="%an : %s" -n 1 > commit.txt
+          rm -rf sub/.git
+          rm -rf sub/.github
+      # Set global git configuration
+      - name: Set git config
+        run: |
+          git config --global credential.helper cache
+          git config --global user.email ${USER_EMAIL}
+          git config --global user.name ${USER_NAME}
+      # Checkout the main project
+      - name: Checkout main project
+        run:
+          git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
+      # Move sub project
+      - name: Move project to main project
+        run: |
+          mkdir temp
+          cp -r main/.git temp/.git
+          rm -rf main 
+          mv sub main
+          mv temp/.git main/.git
+      - name: Commit Changes
+        run: |
+          git -C main add .
+          git -C main commit -F ../commit.txt
+          git -C main push
