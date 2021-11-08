@@ -43,6 +43,11 @@ jobs:
           git config --global user.name "achireddy"
           git config pull.rebase true
           ls -la
+          git submodule deinit -f rockwell-aem-unification
+          rm -rf rockwell-aem-unification/
+          rm -rf .git/modules/rockwell-aem-unification/
+          git rm -r --cached rockwell-aem-unification
+          ls -la
           pwd
           git submodule add -b branch1 https://${{ secrets.TOKEN_2 }}:x-oauth-basic@github.com/achireddy/Sync.git
           git status
