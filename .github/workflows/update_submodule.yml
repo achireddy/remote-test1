@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-      # Checkout this project into a sub folder
+      # Checkout this project into a sub folderr
       - uses: actions/checkout@v2
         with:
           path: sub
