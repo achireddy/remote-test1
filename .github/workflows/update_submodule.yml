@@ -38,8 +38,8 @@ jobs:
       # Checkout the main project
       - name: Checkout main project
         run: |
-          git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
-          #git clone https://git.cloudmanager.adobe.com/rockwell/rockwell/
+          #git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
+          git clone ${MAIN_REPOSITORY}
           #git branch -r
       # Move sub project
       - name: Move project to main project
