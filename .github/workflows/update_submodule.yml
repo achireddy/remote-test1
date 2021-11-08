@@ -22,6 +22,7 @@ jobs:
       # Checkout this project into a sub folderr
       - uses: actions/checkout@v2
         with:
+          submodules: 'true'
           path: sub
       # Cleanup sub projectt
       - name: Clean project
