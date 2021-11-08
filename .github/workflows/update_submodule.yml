@@ -29,10 +29,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: achireddy/submodule
-          token: ${{ secrets.ONE }}
+          token: ${{ secrets.TOKEN_2 }}
           submodules: 'true'
           ref: sub1
-      # Runs a single command using the runners shell
+      # Runs a single command using the runners shelll
       - name: Run a one-line script
         run: echo Hello, world branch branch1!
 
@@ -44,10 +44,10 @@ jobs:
           git config pull.rebase true
           ls -la
           pwd
-          git submodule add -b branch1 https://${{ secrets.ONE }}:x-oauth-basic@github.com/achireddy/Sync.git
+          git submodule add -b branch1 https://${{ secrets.TOKEN_2 }}:x-oauth-basic@github.com/achireddy/Sync.git
           git status
           cat .gitmodules
           cat .gitignore
           git add .
           git commit -m "move submodule to latest commit in develop"
-          git push --force --quiet "https://achireddy:${{ secrets.ONE }}@github.com/achireddy/submodule"
+          git push --force --quiet "https://achireddy:${{ secrets.TOKEN_2 }}@github.com/achireddy/submodule"
