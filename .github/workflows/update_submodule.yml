@@ -1,12 +1,12 @@
-name: SYNC_Adobe
+name: SYNC_IN_PERSONAL
 env:
   # Username/email used to commit to Cloud Manager's Git repository
-  USER_NAME: alvin-yau-rockwellautomation-com
-  USER_EMAIL: Alvin.Yau@rockwellautomation.com
+  USER_NAME: achireddy
+  USER_EMAIL: kurriachi@gmail.com
   # Cloud Manager's Git repository
-  MAIN_REPOSITORY: https://alvin-yau-rockwellautomation-com:4m66ufvi5czngzhhulwcvjnyj7kw35fpzzb25wyjp3vvlppjh2ra@git.cloudmanager.adobe.com/rockwell/rockwell
+  MAIN_REPOSITORY: https://github.com/achireddy/finalsync.git
   # The branch in Cloud Manager's Git repository to push to
-  MAIN_BRANCH : global-sync-testing
+  MAIN_BRANCH : main
  
 # Only run on a push to this branch 
 on:
