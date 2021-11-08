@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: sub
-      # Cleanup sub project
+      # Cleanup sub projectt
       - name: Clean project
         run: |
           git -C sub log --format="%an : %s" -n 1 > commit.txt
