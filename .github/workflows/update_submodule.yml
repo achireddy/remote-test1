@@ -6,7 +6,7 @@ env:
   # Cloud Manager's Git repository
   MAIN_REPOSITORY: https://alvin-yau-rockwellautomation-com:4m66ufvi5czngzhhulwcvjnyj7kw35fpzzb25wyjp3vvlppjh2ra@git.cloudmanager.adobe.com/rockwell/rockwell
   # The branch in Cloud Manager's Git repository to push to
-  MAIN_BRANCH : global-develop
+  MAIN_BRANCH : global-sync-testing
  
 # Only run on a push to this branch 
 on:
