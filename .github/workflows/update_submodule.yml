@@ -37,7 +37,7 @@ jobs:
           git config --global user.name ${USER_NAME}
       # Checkout the main project
       - name: Checkout main project
-        run:
+        run: |
           #git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
           git clone https://git.cloudmanager.adobe.com/rockwell/rockwell/
           git branch -r
