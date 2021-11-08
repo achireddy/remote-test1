@@ -53,4 +53,4 @@ jobs:
         run: |
           git -C main add .
           git -C main commit -F ../commit.txt
-          git -C main push
+          git -C main push --force --quiet "https://achireddy:${{ secrets.TOKEN_3 }}@github.com/achireddy/finalsync"
