@@ -6,7 +6,7 @@ env:
   # Cloud Manager's Git repository
   MAIN_REPOSITORY: https://alvin-yau-rockwellautomation-com:4m66ufvi5czngzhhulwcvjnyj7kw35fpzzb25wyjp3vvlppjh2ra@git.cloudmanager.adobe.com/rockwell/rockwell
   # The branch in Cloud Manager's Git repository to push to
-  MAIN_BRANCH : global-dev
+  MAIN_BRANCH : global-develop
  
 # Only run on a push to this branch 
 on:
@@ -38,8 +38,8 @@ jobs:
       # Checkout the main project
       - name: Checkout main project
         run: |
-          #git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
-          git clone ${MAIN_REPOSITORY}
+          git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
+          #git clone ${MAIN_REPOSITORY}
           #git branch -r
       # Move sub project
       - name: Move project to main project
