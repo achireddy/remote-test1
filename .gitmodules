@@ -1,0 +1,5 @@
+
+[submodule "Sync"]
+	path = Sync
+	url = https://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:x-oauth-basic@github.com/achireddy/Sync.git
+	branch = branch1
