@@ -1,0 +1,57 @@
+name: SYNC_IN_PERSONAL
+env:
+  # Username/email used to commit to Cloud Manager's Git repository
+  USER_NAME: achireddy
+  USER_EMAIL: kurriachi@gmail.com
+  # Cloud Manager's Git repository
+  MAIN_REPOSITORY: https://github.com/achireddy/finalsync.git
+  # The branch in Cloud Manager's Git repository to push to
+  MAIN_BRANCH : main
+ 
+# Only run on a push to this branch 
+on:
+  push:
+     branches: 
+       - sub1
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      # Checkout this project into a sub folderr
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+          path: sub
+      # Cleanup sub projectt
+      - name: Clean project
+        run: |
+          git -C sub log --format="%an : %s" -n 1 > commit.txt
+          rm -rf sub/.git
+          rm -rf sub/.github
+      # Set global git configuration
+      - name: Set git config
+        run: |
+          git config --global credential.helper cache
+          git config --global user.email ${USER_EMAIL}
+          git config --global user.name ${USER_NAME}
+      # Checkout the main project
+      - name: Checkout main project
+        run: |
+          git clone -b ${MAIN_BRANCH} ${MAIN_REPOSITORY} main
+          #git clone ${MAIN_REPOSITORY}
+          #git branch -r
+      # Move sub project
+      - name: Move project to main project
+        run: |
+          mkdir temp
+          cp -r main/.git temp/.git
+          rm -rf main 
+          mv sub main
+          mv temp/.git main/.git
+      - name: Commit Changes
+        run: |
+          git -C main add .
+          git -C main commit -F ../commit.txt
+          git -C main push --force --quiet "https://achireddy:${{ secrets.TOKEN_4 }}@github.com/achireddy/finalsync"
